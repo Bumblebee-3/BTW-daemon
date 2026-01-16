@@ -1,0 +1,14 @@
+[Unit]
+Description=btwd voice assistant
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=/home/bumblebee/.local/bin/btwd
+Environment=LD_LIBRARY_PATH=/home/bumblebee/.local/lib
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

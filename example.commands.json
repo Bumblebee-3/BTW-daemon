@@ -1,0 +1,196 @@
+[
+  {
+    "id": "lock_screen",
+    "category": "system",
+    "description": "Lock the current user session",
+    "examples": [
+      "lock my computer",
+      "lock my pc",
+      "lock it",
+      "lock the screen",
+      "lockdown"
+    ],
+    "dangerous": false,
+    "parameters": {},
+    "shell_command_template": "loginctl lock-session"
+  },
+  {
+    "id": "brightness_set",
+    "category": "brightness",
+    "description": "Set screen brightness to a given percentage",
+    "examples": [
+      "set brightness to 40 percent",
+      "set screen brightness to 70",
+      "set brightness at 25%"
+    ],
+    "dangerous": false,
+    "parameters": {"value": "int 0-100"},
+    "shell_command_template": "brightnessctl set {value}%"
+  },
+  {
+    "id": "brightness_up",
+    "category": "brightness",
+    "description": "Increase screen brightness",
+    "examples": [
+      "increase brightness",
+      "brightness up",
+      "make it brighter",
+      "increase brightness a bit",
+      "turn the brightness up"
+    ],
+    "dangerous": false,
+    "parameters": {"delta": "int 1-100"},
+    "shell_command_template": "brightnessctl set +{delta}%"
+  },
+  {
+    "id": "brightness_down",
+    "category": "brightness",
+    "description": "Decrease screen brightness",
+    "examples": [
+      "decrease brightness",
+      "brightness down",
+      "make it dimmer",
+      "decrease brightness a bit",
+      "turn the brightness down"
+    ],
+    "dangerous": false,
+    "parameters": {"delta": "int 1-100"},
+    "shell_command_template": "brightnessctl set {delta}%-"
+  },
+  {
+    "id": "volume_set",
+    "category": "volume",
+    "description": "Set system volume to a given percentage",
+    "examples": [
+      "set volume to 50 percent",
+      "set the volume to 30",
+      "volume fifty percent"
+    ],
+    "dangerous": false,
+    "parameters": {"value": "int 0-153"},
+    "shell_command_template": "pactl set-sink-volume @DEFAULT_SINK@ {value}%"
+  },
+  {
+    "id": "volume_up",
+    "category": "volume",
+    "description": "Increase system volume",
+    "examples": [
+      "increase volume",
+      "turn it up",
+      "volume up",
+      "increase the volume a bit"
+    ],
+    "dangerous": false,
+    "parameters": {"delta": "int 1-100"},
+    "shell_command_template": "pactl set-sink-volume @DEFAULT_SINK@ +{delta}%"
+  },
+  {
+    "id": "volume_down",
+    "category": "volume",
+    "description": "Decrease system volume",
+    "examples": [
+      "decrease volume",
+      "turn it down",
+      "volume down",
+      "decrease the volume a bit"
+    ],
+    "dangerous": false,
+    "parameters": {"delta": "int 1-100"},
+    "shell_command_template": "pactl set-sink-volume @DEFAULT_SINK@ -{delta}%"
+  },
+  {
+    "id": "volume_mute",
+    "category": "volume",
+    "description": "Mute the volume",
+    "examples": [
+      "mute",
+      "mute volume",
+      "silence it"
+    ],
+    "dangerous": false,
+    "parameters": {},
+    "shell_command_template": "pactl set-sink-mute @DEFAULT_SINK@ 1"
+  },
+  {
+    "id": "system_shutdown",
+    "category": "power",
+    "description": "Shut down the system",
+    "examples": [
+      "shut down",
+      "power off",
+      "turn off the computer"
+    ],
+    "dangerous": true,
+    "parameters": {},
+    "shell_command_template": "systemctl poweroff"
+  },
+  {
+    "id": "system_reboot",
+    "category": "power",
+    "description": "Reboot the system",
+    "examples": [
+      "reboot",
+      "restart the system",
+      "restart"
+    ],
+    "dangerous": true,
+    "parameters": {},
+    "shell_command_template": "systemctl reboot"
+  },
+  {
+    "id": "system_suspend",
+    "category": "power",
+    "description": "Suspend the system",
+    "examples": [
+      "suspend",
+      "sleep",
+      "put the computer to sleep"
+    ],
+    "dangerous": true,
+    "parameters": {},
+    "shell_command_template": "systemctl suspend"
+  },
+  {
+    "id": "wifi_on",
+    "category": "network",
+    "description": "Turn on Wi‑Fi",
+    "examples": [
+      "turn on wifi",
+      "enable wifi",
+      "wifi on"
+    ],
+    "dangerous": false,
+    "parameters": {},
+    "shell_command_template": "nmcli radio wifi on"
+  },
+  {
+    "id": "wifi_off",
+    "category": "network",
+    "description": "Turn off Wi‑Fi",
+    "examples": [
+      "turn off wifi",
+      "disable wifi",
+      "wifi off"
+    ],
+    "dangerous": false,
+    "parameters": {},
+    "shell_command_template": "nmcli radio wifi off"
+  },
+  {
+    "id": "arch_update",
+    "category": "system",
+    "description": "Show and apply system updates (official, AUR, Flatpak)",
+    "examples": [
+      "system update",
+      "update packages",
+      "update my system packages",
+      "update my system",
+      "apply updates",
+      "upgrade system",
+      "system upgrade"
+    ],
+    "dangerous": true,
+    "parameters": {},
+    "shell_command_template": "/home/bumblebee/btw/scripts/syst_upd.sh"
+  }
+]

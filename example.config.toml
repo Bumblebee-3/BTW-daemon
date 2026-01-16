@@ -1,0 +1,37 @@
+name = "btwd"
+description = "Wake word voice assistant daemon"
+
+[wake_word]
+ppn_path = "/absolute/path/to/wake_word.ppn"
+model_path = "/absolute/path/to/porcupine_params.pv"
+device = "cpu"
+sensitivity = 0.6
+
+[speech]
+silence_threshold = 0.01        # normalized RMS (0.0..1.0)
+silence_duration_ms = 700       # continuous silence required
+max_utterance_seconds = 30      # hard safety cap
+
+[execution]
+confirmation_timeout_seconds = 10
+dry_run = false
+
+[ui]
+listening_notification = true   # toast on wake
+osd = true                      # allow text notifications
+osd_timeout_ms = 2000           # auto-dismiss (ms)
+
+[speech_output]
+enabled = true
+provider = "groq"
+voice = "alloy"
+format = "wav"
+rate = 1.0
+
+[search]
+enabled = true
+timeout_ms = 3500
+country = "india"  # optional; passed to Tavily (e.g. "india", "us")
+
+[llm]
+provider = "groq"   # or "mistral"; defaults to "groq"
